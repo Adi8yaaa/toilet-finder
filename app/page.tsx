@@ -1,22 +1,37 @@
 "use client";
 
-//import Map from "./components/Map";
-import SearchBar from "./components/SearchBar";
-import { useToilets } from "./hooks.ts/useToilets";
 import dynamic from "next/dynamic";
 
 const Map = dynamic(() => import("./components/Map"), {
   ssr: false,
 });
 
+import { useState } from "react";
+import SearchBar from "./components/SearchBar";
+import BottomSheet from "./components/BottomSheet";
+import { useToilets } from "./hooks.ts/useToilets";
+import { Toilet } from "./types/toilet";
+import { useLocation } from "./hooks.ts/useLocation";
 
 export default function Home() {
   const { toilets, search } = useToilets();
+  const [selected, setSelected] = useState<Toilet | null>(null);
+  const { coords, getLocation } = useLocation();
 
   return (
     <main className="relative">
       <SearchBar onSearch={search} />
-      <Map toilets={toilets} />
+
+    <Map
+      toilets={toilets}
+      coords={coords}
+      onSelect={setSelected}
+    />
+
+      <BottomSheet
+        selected={selected}
+        onClose={() => setSelected(null)}
+      />
     </main>
   );
 }

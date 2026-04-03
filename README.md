@@ -35,3 +35,5 @@ The easiest way to deploy your Next.js app is to use the [Vercel Platform](https
 
 Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
 # toilet-finder
+
+Fast, mobile-first PWA that shows nearby toilets on a map using Next.js + Leaflet + Overpass API.
