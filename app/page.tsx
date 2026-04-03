@@ -18,6 +18,8 @@ export default function Home() {
   const [selected, setSelected] = useState<Toilet | null>(null);
   const { coords, getLocation } = useLocation();
 
+  console.log("TOILETS:", toilets);
+
   return (
     <main className="relative">
       <SearchBar onSearch={search} />

@@ -40,6 +40,11 @@ export default function Map({
       {/* 🗺️ Map tiles */}
       <TileLayer url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" />
 
+      {/* ✅ ADD TEST MARKER HERE */}
+        <Marker position={[19.076, 72.8777]}>
+          <Popup>Test Marker</Popup>
+        </Marker>
+
       {/* 📍 User location */}
       {coords && (
         <Marker position={[coords.lat, coords.lon]}>
